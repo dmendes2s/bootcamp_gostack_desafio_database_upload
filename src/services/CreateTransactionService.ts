@@ -20,9 +20,9 @@ class CreateTransactionService {
     category,
   }: Request): Promise<Transaction> {
 
-    // if (type !== 'income' && type !== 'outcome') {
-    //   throw new AppError('Invalid type action, use income or outcome', 400);
-    // }
+    if (type !== 'income' && type !== 'outcome') {
+      throw new AppError('Invalid type action, use income or outcome', 400);
+    }
 
     const transactionRepository = getCustomRepository(TransactionRepository);
     let newTransaction: Transaction;

@@ -19,7 +19,6 @@ class CreateTransactionService {
     type,
     category,
   }: Request): Promise<Transaction> {
-
     if (type !== 'income' && type !== 'outcome') {
       throw new AppError('Invalid type action, use income or outcome', 400);
     }
